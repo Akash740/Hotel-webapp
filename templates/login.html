@@ -1,0 +1,55 @@
+{% extends 'basic.html' %}
+{% block title%} LogIn {% endblock %}
+{% block style %}
+<style>
+    .login {
+        height: 88vh;
+        text-align: center;
+        justify-content: center;
+        background-color: rgb(228 230 242);
+    }
+    .login p{
+        font-size: 35px;
+    color: #01011d;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    }
+
+    .login input {
+        text-align: center;
+        padding: 10px;
+        width: 50vh;
+        height: 13px;
+        margin: 9px;
+        border: solid black;
+        border-radius: 12px;
+    }
+
+
+    .login button {
+        width: 20vh;
+        height: 25px;
+        margin-top: 20px;
+        border: solid black;
+        border-radius: 12px;
+        background-color: white;
+
+    }
+</style>
+{% endblock %}
+{% block body %}
+<form class="login" action="" method="post">
+    <p>For login enter your username and password</p>
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter your user name"> <br>
+    <input type="password" name="password3" placeholder="Enter your password"> <br>
+    <button type="submit">Login</button>
+    <button type="reset">reset</button>
+</form>
+
+<div>
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+</div>
+{% endblock %}

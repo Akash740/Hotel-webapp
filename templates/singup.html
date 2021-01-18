@@ -1,0 +1,66 @@
+{% extends 'basic.html' %}
+{% block title %} SingUp{% endblock %}
+{% block style %}
+<style>
+    .singup{
+        justify-content: center;
+    text-align: center;
+    height: 88vh;
+    background-color: rgb(228 230 242);
+    }
+    .singup p{
+        font-size: 35px;
+    color: #01011d;
+    padding-top: 20px;
+    }
+/* .singup input{
+    align-items: center;
+    height: 100px;
+} */
+    .sin{
+
+        padding: 20px;    
+    }
+    .sin input{
+     
+        text-align: center;
+    padding: 10px;
+    width: 50vh;
+    height: 13px;
+    margin: 9px;
+    border: solid black;
+    border-radius: 12px;
+}
+    
+    .sin button{
+        width: 20vh;
+        height: 25px;
+        margin-top: 20px;
+        border: solid black;
+        border-radius: 12px;
+        background-color: white;
+    }
+    
+</style>
+ {% endblock %}
+{% block body %}
+<form class="singup" action="" method="post">
+    <p>you can enter your details for SingUp</p>
+    {% csrf_token %}
+<div class="sin">
+    <input type="text" name="first_name" placeholder="First name"> <br>
+    <input type="text" name="last_name" placeholder="Last name"> <br>
+    <input type="text" name='username' placeholder="Username"> <br>
+    <input type="email" name="email" placeholder="Enter your email"> <br>
+    <input type="password" name="password1" placeholder="Password"> <br>
+    <input type="password" name="password2" placeholder="Re-enter password"> <br>
+    <button id="submit" type="submit">submit</button>
+    <button type="reset">reset</button>
+</div>
+</form>
+<div>
+    {% for message in messages %}
+    <h6>{{message}}</h6>
+    {% endfor %}
+</div>
+{% endblock %}

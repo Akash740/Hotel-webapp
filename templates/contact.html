@@ -1,0 +1,16 @@
+{% extends 'basic.html' %}
+{% block title %} contact us {% endblock %}
+{% block body %} 
+
+<form action="" method="POST">
+    {% csrf_token %}
+<div>
+    <input type="text" placeholder="Enter your name"><br>
+    <input type="email" placeholder="Enter your email"><br>
+    <input type="text" placeholder="Enter your quary"><br>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+</div>
+</form>
+
+{% endblock%}

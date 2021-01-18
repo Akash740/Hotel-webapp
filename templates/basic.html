@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+
+
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+
+        }
+
+        .navbar {
+            height: 50px;
+            display: flex;
+            background-color: black;
+            align-items: center;
+            position: sticky;
+            top: 0;
+
+
+
+        }
+
+        .navbar li a {
+            text-align: center;
+            justify-content: center;
+            text-decoration: none;
+            color: cornsilk;
+            font-size: 25px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .navbar li a:hover {
+            color: rgb(228, 180, 61);
+        }
+
+        .subnav {
+            margin-left: 100px;
+            width: 70%;
+            display: flex;
+            list-style: none;
+            text-align: center;
+        }
+
+        .searching {
+
+            width: 30%;
+            text-align: right;
+            margin: 20px;
+        }
+
+        .searching input {
+            text-align: center;
+    width: 121px;
+    height: 19px;
+    border: solid whitesmoke;
+    border-radius: 5px;
+        }
+
+
+        .btn {
+            height: 28px;
+            width: 60px;
+            background: white;
+            border-radius: 5px;
+            color: rgb(100, 100, 100);
+        }
+        .footer{
+            background-color: rgb(11, 17, 17);
+            text-align: center;
+        }
+    </style>
+    {% block style %} {% endblock %}
+</head>
+
+<body>
+
+
+    <div class="navbar background">
+        <ul class="subnav">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/home/#about">About us</a></li>
+            <li><a href="/home/#contact">Contact us</a></li>
+
+            {% if user.is_authenticated %}
+            <li>Welcome {{user.first_name}}</li>
+            <li><a href="/account/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/account/singup/">Singup</a></li>
+            <li><a href="/account/login/">Login</a></li>
+            {% endif %}
+        </ul>
+        <div class="searching">
+            <input type="text" placeholder="search">
+            <button class='btn' type="submit">search</button>
+        </div>
+    </div>
+  
+
+    {% block body%} {% endblock %}
+
+    <footer class="footer">
+        <p>Author: Akash Goyal <br>
+        <a href="mailto:akashgoyalmains18@gmail.com">akashgoyamains18@gmail.com</a></p>
+      </footer>
+
+</body>
+
+</html>

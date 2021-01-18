@@ -1,0 +1,224 @@
+{% extends 'basic.html'%}
+
+{% block title %}MYhotel.com{% endblock %}
+{% block style %}
+<style>
+  .first {
+    color: blue;
+  }
+
+  .firstsection {
+    height: 90vh;
+  }
+
+  .background {
+    background: rgba(0, 0, 0, 0.7) url("../media/images/pexels-pixabay-258154.jpg");
+    background-size: cover;
+    background-blend-mode: darken;
+  }
+
+  .secondsec {
+    /* height: 40vh; */
+    text-align: center;
+    justify-content: center;
+  }
+
+  .secondsec p {
+    text-align: center;
+    size: a4;
+    padding: 50px;
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    background: #ffffff;
+    /* padding-bottom: 50px; */
+  }
+
+  .secondsec h1 {
+    font-size: 50px;
+    color: #021337d6;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffffff;
+    padding-top: 65px;
+  }
+
+  .cards h1 {
+    text-align: center;
+    color: #021337d6 ;
+    font-family: 'Times New Roman', Times, serif;
+    
+    background-color: #ebebff;
+    font-size: 50px;
+    padding: 50px;
+
+  }
+
+  .card {
+    display: flex;
+    
+    background-color: #ebebff;
+  }
+
+  .row {
+    width: 33.3%;
+    margin: 50px;
+    display: flex;
+  }
+
+  .col-md-4 img {
+    width: 200px;
+    height: 200px;
+    border: solid black;
+    border-radius: 50%;
+  }
+
+  .card-body {
+    margin: 20px;
+    padding-top: 20px;
+  }
+
+ 
+
+  .firsttxt {
+    color: #dbffe4;
+    text-align: left;
+    justify-content: left;
+    padding-top: 25vh;
+    padding-left: 75px;
+  }
+
+  .firsttxt h1 {
+    font-size: 30px;
+    padding: 10px;
+    font-family: cursive;
+  }
+
+  .firsttxt h3 {
+    font-size: 25px;
+    font-family: cursive;
+    padding: 10px;
+  }
+
+  .btnn {
+    width: 149px;
+    height: 40px;
+    margin: 10px;
+    font-size: 25px;
+    background-color: burlywood;
+    border-radius: 5px;
+  }
+  #contact{
+    /* text-align: center; */
+    /* justify-content: center; */
+    padding: 50px;
+    display: flex;
+    background-color: #bcbcbc;
+  }
+  #contact h1{
+    margin: 84px;
+    font-size: 75px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 226px;
+    color: #021337d6;
+}
+  #contact input{
+    padding: 15px;
+    margin: 12px;
+    width: 365px;
+    text-align: center;
+    margin-left: 33vh;
+    justify-content: center;
+    border: solid;
+    border-radius: 10px;
+
+  }
+  #b1{
+    font-size: 20px;
+    width: 115px;
+    margin: 20px;
+    margin-left: 300px;
+    border: solid;
+    border-radius: 11px;
+
+  }
+  #b2{  
+      font-size: 20px;
+    width: 115px;
+    margin: 20px;
+    /* margin-left: 226px; */
+    border: solid;
+    border-radius: 11px;
+
+  }
+
+</style>
+{% endblock %}
+{% block body%}
+
+<section class="firstsection background">
+  <div class="firsttxt">
+    <h1>Welcome to MyHotel</h1>
+    <h3>spend Quality holidays with Us </h3>
+    <button class="btnn" type="submit"><a href="/book">BOOK</a></button>
+  </div>
+</section>
+
+
+<div class="secondsec" id="about">
+  <br>
+  <h1>ABOUT US </h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi totam consequuntur laboriosam sint esse ipsa nobis
+    debitis voluptatum, magnam dicta odio accusamus minus quasi accusantium temporibus repellat sequi cumque cum?
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto perspiciatis, dicta maiores cupiditate quidem
+    facilis quos excepturi aperiam ducimus saepe obcaecati ut alias harum quas vitae eveniet optio provident aliquid.
+  </p>
+</div>
+
+<div class="cards">
+  <h1>Room Type</h1>
+  <div class="card mb-3">
+    {% for room in hotel %}
+
+
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="../media/{{room.image}}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{room.name}}</h5>
+          <p class="card-text">{{room.desc}}</p>
+          <p class="card-text"><small class="text-muted">{{room.price}}</small></p>
+        </div>
+      </div>
+    </div>
+
+
+    {% endfor %}
+  </div>
+</div>
+
+<!-- <div class="swimming">
+  <h1>swimming pool</h1>
+  <img src="../media/account/images/swim.jpg" alt="">
+</div> -->
+
+
+<form id="contact"action="" method="POST">
+  {% csrf_token %}
+  <div><h1>Contact us </h1></div>
+<div>
+  <input type="text" placeholder="Enter your name"><br>
+  <input type="email" placeholder="Enter your email"><br>
+  <input type="text" placeholder="Enter your quary"><br>
+  <button id="b1" type="submit">Submit</button>
+  <button id="b2" type="reset">Reset</button>
+</div>
+</form>
+
+
+
+
+
+
+{% endblock %}
