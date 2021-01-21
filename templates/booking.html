@@ -1,17 +1,68 @@
 {% extends 'basic.html'%}
+{% block title %}booking{% endblock %}
+{% block style %}
+<style>
+
+.first_sec{
+    height: 90vh;
+    padding-left: 150px;
+    padding-top: 50px;
+}
+
+
+.input_box{
+padding-left: 50px;
+
+}
+.input_box input{
+    
+    height: 28px;
+    width: 250px;
+}
+.radio_btn{
+    padding-left: 70px;
+    padding-top:20px;
+}
+.btn1{
+    padding-left:50px;
+    padding-top: 20px;
+    width: 100px;
+    height: 40px;
+}
+
+
+</style>
+
+{% endblock %}
+
+
 {% block body %}
-
-
 <h1>for booking enter your details</h1>
-<input type="text" placeholder="Enter your full name">
-<input type="email" placeholder="Enter youe mail id">
-<input type="number" placeholder="number of person">
-<input type="radio" name="roomType" id="roomType1">
-<label for="roomType1">delux room </label>
-<input type="radio" name="roomType" id="roomType2">
-<label for="roomType2">super delux </label>
-<input type="radio" name="roomType" id="roomType3">
-<label for="roomType3">super delux for one person</label>
-<button type="submit">make payment for booking</button>
 
+<form  class="first_sec" action="">
+
+
+<div class="input_box">
+<h3>Name</h3>
+<input type="text" placeholder="Enter your full name"> <br>
+<h3>Email</h3>
+<input type="email" placeholder="Enter youe mail id"> <br>
+<h3>Number of preson</h3>
+<input type="number" placeholder="number of person"> <br>
+</div>
+<div class="radio_btn">
+<h3>Select Room Type</h3>
+<input type="radio" name="roomType" id="roomType1">
+<label for="roomType1">delux room </label><br>
+<input type="radio" name="roomType" id="roomType2">
+<label for="roomType2">super delux </label><br>
+<input type="radio" name="roomType" id="roomType3">
+<label for="roomType3">super delux for one person</label><br>
+
+</div>
+
+<div class='btn1'>
+<button type="submit">make payment for booking</button>
+</div>
+</form>
 {% endblock %}
