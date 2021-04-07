@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title%} {% endblock %}
+{% block body %}
+
+
+<form class="row g-3 needs-validation" method="post" novalidate>
+    
+    {% csrf_token %}
+
+
+    
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">First name</label>
+      <input type="text" class="form-control" id="validationCustom01" name="first_name" placeholder="Akash" >
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Last name</label>
+      <input type="text" class="form-control" id="validationCustom02" name="last_name" placeholder="Goyal" >
+     
+    </div>
+    
+    <div class="col-md-4">
+        <label for="validationCustom03" class="form-label">Username</label>
+        <input type="text" class="form-control" id="validationCustom03" name="username" placeholder="akash123">
+        
+      </div>
+   
+
+      
+    <div class="col-md-5">
+        <label for="validationCustom04" class="form-label">Password</label>
+        <input type="password" class="form-control" id="validationCustom04" name="password" placeholder="enter your password"  >
+        
+      </div>
+   
+      <div class="col-md-5">
+        <label for="validationCustom05" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="validationCustom05" name="password1" placeholder="Re-enter your password"  >
+        
+      </div>
+
+{% for message in messages %}
+<h1>{{message}}</h1>
+   
+{% endfor %}
+    <div class="col-12">
+        <br>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+
+
+  </form>
+{% endblock %}

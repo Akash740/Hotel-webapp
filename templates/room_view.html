@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} {{rooms.name}}{% endblock %}
+{% block style%}
+<style>
+.view_img{
+    height: 70vh;
+   
+}
+
+
+</style>{% endblock%}
+{% block body %}
+<div class="container">
+
+<h1 style="text-align: center;">{{rooms.name}}</h1>
+<h4>price :{{rooms.price}}</h4>
+<h6>{{rooms.decs}}</h6>
+<img class="view_img" src="../media/{{rooms.image}}" alt="">
+
+</div>
+{% endblock %}
+
+
