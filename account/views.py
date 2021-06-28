@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from account.models import book_room
+import time
+from account.models import book_room
 def reg(request):
     if request.method=='POST':
         first_name=request.POST['first_name']
@@ -51,6 +53,8 @@ def book(request):
             df=User.objects.get(username=request.user.username)
             booking= book_room(username=df,no_of_people=people,no_of_room=rooms,check_in_day=intime,check_out_day=outtime)
             booking.save()
+            messages.info(request,'your room has been booked')
+            time.sleep(5)
             return redirect('myhotel')
         
            
@@ -59,3 +63,7 @@ def book(request):
         return redirect('login')
     return render(request,'book_room.html')
  
+def booking_details(request):
+    book_rooms=book_room.objects.all()
+    data_dirct={'booked_room':book_rooms}
+    return render(request,'booking_details.html',context=data_dirct)

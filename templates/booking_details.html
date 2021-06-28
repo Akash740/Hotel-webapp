@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}contact us{% endblock %}
+{% block body %}
+
+
+{% if user.is_authenticated %}
+<h1>Name: {{user.first_name}} {{user.last_name}} </h1>
+{% if booked_room %}
+{% for j in booked_room %}
+
+{% if user.id == j.username_id %}
+<h3>Date of Booking: {{j.booking_date}} </h3>
+
+<h5>Username: {{j.username}}</h5>
+<h5>No Of  People: {{j.no_of_people}}</h5>
+<h5>No Of Rooms: {{j.no_of_room}}</h5>
+<h5>Check In Day: {{j.check_in_day}}</h5>
+<h5>Check Out Day: {{j.check_out_day}}</h5>
+{% endif %}
+<br><br>
+{% endfor %}
+{% endif %}
+{% else %}
+<h1>To see booking details you have to login first</h1>
+{% endif %}
+{% endblock %}

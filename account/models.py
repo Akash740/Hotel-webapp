@@ -1,5 +1,8 @@
+from datetime import date
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+
 
 class contact_us(models.Model):
     username=models.CharField(max_length=100)
@@ -22,4 +25,4 @@ class book_room(models.Model):
     no_of_room=models.IntegerField()
     check_in_day=models.DateField()
     check_out_day=models.DateField()
-
+    booking_date=models.DateField(default=timezone.now)

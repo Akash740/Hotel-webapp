@@ -2,20 +2,28 @@
 {% block title %} {{rooms.name}}{% endblock %}
 {% block style%}
 <style>
+    .vie{
+        height: 110vh;
+    }
 .view_img{
     height: 70vh;
+    width: 100vh;
    
 }
 
 
 </style>{% endblock%}
 {% block body %}
-<div class="container">
+<div class="container vie" >
 
-<h1 style="text-align: center;">{{rooms.name}}</h1>
+    <h1 style="text-align: center;">{{rooms.name}}</h1>
+
+
+<img class="view_img" src="../media/{{rooms.image}}" alt="">
 <h4>price :{{rooms.price}}</h4>
 <h6>{{rooms.decs}}</h6>
-<img class="view_img" src="../media/{{rooms.image}}" alt="">
+<a href="../account/book_room" class="btn btn-primary">Book Room</a>
+
 
 </div>
 {% endblock %}
